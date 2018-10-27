@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 95700451048144686}
   - component: {fileID: 114363004409423538}
   - component: {fileID: 65392981980133132}
+  - component: {fileID: 114845770196109962}
   m_Layer: 0
   m_Name: bordPrefab
   m_TagString: Untagged
@@ -132,3 +133,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed317ce95cc7d487281d1c14a76a621b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114845770196109962
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1742015758657754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114363004409423538}
+          m_MethodName: OnClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []

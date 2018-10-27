@@ -6,11 +6,20 @@ namespace Map
 {
     public class BoadSet : MonoBehaviour
     {
-        private int boarId;
+        private string placeId;
+        private string place_name;
+        private string icon;
 
-        public void SetUp(int id)
+        public void SetUp(string id, string name, string iconUrl)
         {
-            boarId = id;
+            placeId = id;
+            place_name = name;
+            icon = iconUrl;
+        }
+
+        public void OnClick()
+        {
+            Debug.Log(place_name + "がクリックされました");
         }
     }
 }

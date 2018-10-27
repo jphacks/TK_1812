@@ -31,12 +31,15 @@ namespace Map
         [SerializeField] Mapbox.Unity.Map.AbstractMap mainMap;
         [SerializeField] CreateBoad boad;
 
+        MapSceneData data = new MapSceneData();
+
         public static MapFSM State { get { return Instance.state; } }
         public static LoacationGetter Getter{ get { return Instance.getter; }}
         public static UICanvas UI{ get { return Instance.ui; }}
         public static PlayerController Player { get { return Instance.player; }}
         public static Mapbox.Unity.Map.AbstractMap MainMap { get { return Instance.mainMap; }}
         public static CreateBoad Boad { get { return Instance.boad; }}
+        public static MapSceneData Data { get { return Instance.data; }}
 
         override protected void OnSingltonAwake()
         { }
