@@ -15,6 +15,7 @@ namespace Map.Task
         protected override void OnExecute()
         {
             MapSceneManager.Player.Setup();
+
         }
 
         protected override void OnUpdate()

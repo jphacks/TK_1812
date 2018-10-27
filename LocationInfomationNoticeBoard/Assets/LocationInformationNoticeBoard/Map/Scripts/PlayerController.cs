@@ -15,10 +15,6 @@ namespace Map
         // Use this for initialization
         public void Setup()
         {
-            //maps.Options.locationOptions.latitudeLongitude = string.Format("{0},{1}", locationGetter.Latitude, locationGetter.Latitude);
-            //var lo = string.Format("{0},{1}", 139.7621, 35.71447);
-            //Debug.Log("tes:" + lo);
-            //maps.Options.locationOptions.latitudeLongitude = lo;
             Mapbox.Utils.Vector2d location;
             if(locationGetter.CanGetLonLat())
             {
@@ -34,7 +30,6 @@ namespace Map
             maps.UpdateMap(location);
            
             //Mapbox.Utils.Vector2d location = new Mapbox.Utils.Vector2d(locationGetter.Latitude, locationGetter.Longitude);
-            var tes = maps.GeoToWorldPosition(location);
 
             offset = transform.localPosition;
         }
