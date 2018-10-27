@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "201892515086",
+    "firebase_url": "https://mapboard-5364b.firebaseio.com",
+    "project_id": "mapboard-5364b",
+    "storage_bucket": "mapboard-5364b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:201892515086:android:c08117ffd98ce75d",
+        "android_client_info": {
+          "package_name": "com.example.mapboard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "201892515086-isqtcjgf16ds7c3gdthl2qvjuihem7i1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQ1oR3NSgJ0O0A8MQJIiBncNnoqePs4vM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
