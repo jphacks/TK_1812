@@ -13,6 +13,7 @@ namespace Board.Task
         protected override void OnExecute()
         {
             BoardManager.UI.Set(()=>OnClick());
+            GetPost();
         }
 
         protected override void OnClick(){
@@ -21,9 +22,35 @@ namespace Board.Task
         protected override void OnBack(){}
 
         /// <summary>
+        /// 投稿を取得
+        /// </summary>
+        void GetPost() {
+            FirebaseDatabase.DefaultInstance
+            .GetReference("posts")
+            .OrderByChild("place_id")
+            .EqualTo(100000)
+            .GetValueAsync()
+            .ContinueWith(task => {
+                if (task.IsFaulted) {
+                    Debug.Log("Post Get Faild");
+                }
+                else if (task.IsCompleted) {
+                    var snapshot = task.Result;
+                    IEnumerator result = snapshot.Children.GetEnumerator();
+
+                    while (result.MoveNext()) {
+                        DataSnapshot data = result.Current as DataSnapshot;
+                        string name = (string)data.Child("text").Value;
+                        Debug.Log(name);
+                    }
+                }
+            });
+        }
+
+        /// <summary>
         /// 投稿をする
         /// </summary>
-        public void AddPost () {
+        void AddPost () {
             var post = BoardManager.UI.Post.text;
             Debug.Log(post);
             DatabaseReference reference = FirebaseDatabase.DefaultInstance.GetReference ("posts");
