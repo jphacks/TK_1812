@@ -9,12 +9,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Top {
+namespace Board
+{
 	public class UICanvas : MonoBehaviour {
-		[SerializeField] Text name;
+		[SerializeField] Text post;
 		Action action;
 
-		public Text Name { get { return name; } }
+		public Text Post { get { return post; } }
 
 		public void OnClick () {
 			if(action != null){

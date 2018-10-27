@@ -242,11 +242,11 @@ MonoBehaviour:
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
-    m_RichText: 1
+    m_RichText: 0
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u306F\u3058\u3081\u308B"
+  m_Text: "\u6295\u7A3F\uFF01"
 --- !u!222 &132049109
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -580,12 +580,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 917011434}
-  - component: {fileID: 917011435}
   - component: {fileID: 917011438}
   - component: {fileID: 917011437}
   - component: {fileID: 917011436}
   - component: {fileID: 917011439}
   - component: {fileID: 917011440}
+  - component: {fileID: 917011435}
   m_Layer: 0
   m_Name: UI Canvas
   m_TagString: Untagged
@@ -607,7 +607,7 @@ RectTransform:
   - {fileID: 624773992}
   - {fileID: 2122765030}
   m_Father: {fileID: 1287777906}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -622,11 +622,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 917011433}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ac78078762f14a5b834020b9a59ce43, type: 3}
+  m_Script: {fileID: 11500000, guid: 62cbe5d54d026471fb56efc79564aa59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: {fileID: 740140800}
-  post: 
+  post: {fileID: 740140800}
 --- !u!222 &917011436
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -727,6 +726,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1728794794}
   - {fileID: 1433667651}
   - {fileID: 1436788301}
   - {fileID: 917011434}
@@ -741,11 +741,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1433667651}
-  - component: {fileID: 1433667650}
   - component: {fileID: 1433667653}
   - component: {fileID: 1433667652}
+  - component: {fileID: 1433667650}
   m_Layer: 0
-  m_Name: TopManager
+  m_Name: BoardManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -759,7 +759,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1433667649}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae6a7008ca4546bb9de854c171d44af, type: 3}
+  m_Script: {fileID: 11500000, guid: c9866a78a8f6441afaca3ac9e8911d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   uiCanvas: {fileID: 917011435}
@@ -775,7 +775,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1287777906}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1433667652
 MonoBehaviour:
@@ -788,9 +788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b98a6db0b653f764eac834f85857a9dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _serializedBlackboard: '{"_variables":{"initialized":{"_name":"initialized","_id":"cd42ffd7-ba42-450a-a44f-c5761056d9e9","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"created":{"_name":"created","_id":"3fb4534b-a25b-4f68-8c8f-54ab69dcb5ff","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
+  _serializedBlackboard: '{"_variables":{}}'
   _objectReferences: []
 --- !u!114 &1433667653
 MonoBehaviour:
@@ -803,7 +801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a7dbb6bbdf4ffb46ab7dd87ba8191e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boundGraphSerialization: '{"version":2.64,"type":"NodeCanvas.StateMachines.FSM","translation":{"x":-5052.0,"y":-4878.0},"zoomFactor":0.9999155,"nodes":[{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"$type":"Top.Task.ActionStandby"}]},"_position":{"x":5147.0,"y":5277.0},"_name":"StandBy","$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"$type":"Top.Task.CreateUserAction"}]},"_position":{"x":5282.0,"y":5208.0},"_name":"CreateUser","$type":"NodeCanvas.StateMachines.ActionState","$id":"6"},{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"$type":"Top.Task.LoadSceneAction"}]},"_position":{"x":5455.461,"y":5097.431},"_name":"Load","$type":"NodeCanvas.StateMachines.ActionState","$id":"10"}],"connections":[{"_condition":{"valueA":{"_name":"initialized","_targetVariableID":"cd42ffd7-ba42-450a-a44f-c5761056d9e9"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"valueA":{"_name":"created","_targetVariableID":"3fb4534b-a25b-4f68-8c8f-54ab69dcb5ff"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"localBlackboard":{"_name":"Local
+  boundGraphSerialization: '{"version":2.64,"type":"NodeCanvas.StateMachines.FSM","translation":{"x":-5052.0,"y":-4878.0},"zoomFactor":0.9999155,"nodes":[{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"$type":"Board.Task.ActionStandby"}]},"_position":{"x":5246.443,"y":5194.439},"_name":"StandBy","$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"$type":"Board.Task.ShowBoardTask"}]},"_position":{"x":5424.458,"y":5121.433},"_name":"ShowBoard","$type":"NodeCanvas.StateMachines.ActionState","$id":"6"}],"connections":[{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"localBlackboard":{"_name":"Local
     Blackboard","_variables":{}}}'
   boundGraphObjectReferences: []
   enableAction: 0
@@ -887,7 +885,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1287777906}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!124 &1436788302
 Behaviour:
@@ -896,6 +894,46 @@ Behaviour:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1436788298}
   m_Enabled: 1
+--- !u!1 &1728794793
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1728794794}
+  - component: {fileID: 1728794795}
+  m_Layer: 0
+  m_Name: DebugObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1728794794
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1728794793}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1287777906}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1728794795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1728794793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aa9a25c000b74339a189a375e7d1a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1810998131
 GameObject:
   m_ObjectHideFlags: 0
