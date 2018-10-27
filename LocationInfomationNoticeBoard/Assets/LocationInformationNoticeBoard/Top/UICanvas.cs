@@ -13,10 +13,6 @@ namespace Top {
 	public class UICanvas : MonoBehaviour {
 		[SerializeField] Text name;
 		Action action;
-		public string post;
-
-		protected Firebase.Auth.FirebaseAuth auth;
-		Firebase.Auth.FirebaseUser user;
 
 		public Text Name { get { return name; } }
 
