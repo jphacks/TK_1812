@@ -31,6 +31,20 @@ namespace Map
         [SerializeField] Mapbox.Unity.Map.AbstractMap mainMap;
         [SerializeField] CreateBoad boad;
 
+        [SerializeField] bool isDebug;
+
+        public static bool IsDebug
+        {
+            get
+            {
+#if UNITY_EDITOR
+                return Instance.isDebug;
+#else
+                return false;
+#endif
+            }
+        }
+
         MapSceneData data = new MapSceneData();
 
         public static MapFSM State { get { return Instance.state; } }
