@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,18 +22,9 @@ namespace Map.Task
             if (MapSceneManager.Getter.CanGetLonLat())
             {
                 string lonLatInfoTemplate = "緯度: {0}\n経度: {1}";
-                MapSceneManager.UI.SetText(string.Format(lonLatInfoTemplate, MapSceneManager.Getter.Latitude, MapSceneManager.Getter.Longitude));
+                MapSceneManager.UI.SetText(string.Format(lonLatInfoTemplate, (float)MapSceneManager.Getter.Latitude, (float)MapSceneManager.Getter.Longitude));
+                MapSceneManager.Player.PlayerTransUpdate();
             }
         }
-
-        //IEnumerator PlayingGame()
-        //{
-        //    if(MapSceneManager.Getter.CanGetLonLat())
-        //    {
-        //        string lonLatInfoTemplate = "緯度: {0}\n経度: {1}";
-        //        MapSceneManager.UI.SetText(string.Format(lonLatInfoTemplate,MapSceneManager.Getter.Latitude, MapSceneManager.Getter.Longitude));
-        //    }
-        //    yield return null;
-        //}
     }
 }

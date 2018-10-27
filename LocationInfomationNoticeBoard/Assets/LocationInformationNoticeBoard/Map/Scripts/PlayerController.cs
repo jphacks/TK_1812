@@ -10,6 +10,8 @@ namespace Map
         [SerializeField] Mapbox.Unity.Map.AbstractMap maps;
 
         [SerializeField] LoacationGetter locationGetter;
+
+        private Vector3 offset;
         // Use this for initialization
         public void Setup()
         {
@@ -33,13 +35,19 @@ namespace Map
            
             //Mapbox.Utils.Vector2d location = new Mapbox.Utils.Vector2d(locationGetter.Latitude, locationGetter.Longitude);
             var tes = maps.GeoToWorldPosition(location);
-            Debug.Log(tes);
+
+            offset = transform.localPosition;
         }
 
         // Update is called once per frame
-        void Update()
+        public void PlayerTransUpdate()
         {
+            var map = MapSceneManager.MainMap;
+            var location = new Mapbox.Utils.Vector2d(locationGetter.Latitude, locationGetter.Longitude);
+            transform.localPosition = map.GeoToWorldPosition(location) + offset;
 
+            string positionTextTemplate = "x: {0}\ny: {1}";
+            MapSceneManager.UI.SetPositionText(string.Format(positionTextTemplate, transform.position.x, transform.position.y));
         }
     }
 }

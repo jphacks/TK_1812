@@ -39,10 +39,8 @@ namespace Map
                     {
                         case LocationServiceStatus.Stopped:
                             Input.location.Start();
-                            Debug.Log("スタート");
                             break;
                         case LocationServiceStatus.Running:
-                            Debug.Log("running");
                             Longitude = Input.location.lastData.longitude;
                             Latitude = Input.location.lastData.latitude;
                             MapSceneManager.State.IsLoadStartLoacation = true;

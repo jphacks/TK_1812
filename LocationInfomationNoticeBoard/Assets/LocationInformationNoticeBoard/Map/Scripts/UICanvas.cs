@@ -10,7 +10,7 @@ namespace Map
         private const string lonLatInfoTemplate = "緯度: {0}\n経度: {1}";
 
         [SerializeField] Text locationText;
-
+        [SerializeField] Text positionText;
         [SerializeField] LoacationGetter loacationGetter;
 
         // Use this for initialization
@@ -23,5 +23,11 @@ namespace Map
         {
             locationText.text = text;
         }
+
+        public void SetPositionText(string text)
+        {
+            positionText.text = text;
+        }
+
     }
 }

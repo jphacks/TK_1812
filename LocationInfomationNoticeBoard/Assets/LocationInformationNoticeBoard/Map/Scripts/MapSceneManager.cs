@@ -28,11 +28,13 @@ namespace Map
         [SerializeField] LoacationGetter getter;
         [SerializeField] UICanvas ui;
         [SerializeField] PlayerController player;
+        [SerializeField] Mapbox.Unity.Map.AbstractMap mainMap;
 
         public static MapFSM State { get { return Instance.state; } }
         public static LoacationGetter Getter{ get { return Instance.getter; }}
         public static UICanvas UI{ get { return Instance.ui; }}
-        public static PlayerController Player { get { return instance.player; }}
+        public static PlayerController Player { get { return Instance.player; }}
+        public static Mapbox.Unity.Map.AbstractMap MainMap { get { return Instance.mainMap; }}
 
         override protected void OnSingltonAwake()
         { }
