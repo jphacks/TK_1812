@@ -11,13 +11,15 @@ namespace Top.Task
 {
     public class CreateUserAction : TopActionTask
     {
+		Firebase.Auth.FirebaseUser user;
+
         protected override void OnExecute()
         {
             TopManager.UI.Set(() => OnClick());
         }
 
-        protected override void OnClick(){
-            GameData.Auth.SignInAnonymouslyAsync ().ContinueWith (task => {
+        protected async override void OnClick(){
+            await GameData.Auth.SignInAnonymouslyAsync ().ContinueWith (task => {
 				if (task.IsCanceled) {
 					Debug.LogError ("SignInAnonymouslyAsync was canceled.");
 					return;
@@ -27,27 +29,22 @@ namespace Top.Task
 					return;
 				}
 
-				var user = task.Result;
-				GameData.User = user;
+				user = task.Result;
 
 				Debug.LogFormat ("User signed in successfully: {0} ({1})", user.DisplayName, user.UserId);
-				updateProfile();
 			});
-        }
-        protected override void OnBack(){}
 
-        public async void updateProfile () {
-            var name = TopManager.UI.Name.text;
-            if(name == null){
-                name = "no name";
-            }
+			var name = TopManager.UI.Name.text;
+	           if(name == null){
+	               name = "no name";
+	           }
 
 			var profile = new Firebase.Auth.UserProfile {
 				DisplayName = name
 			};
 
-			var user = GameData.Auth.CurrentUser;
-			await user.UpdateUserProfileAsync (profile).ContinueWith (task => {
+			//var user = GameData.Auth.CurrentUser;
+			user.UpdateUserProfileAsync (profile).ContinueWith (task => {
 				if (task.IsCanceled) {
 					Debug.LogError ("UpdateUserProfileAsync was canceled.");
 					return;
@@ -57,8 +54,35 @@ namespace Top.Task
 					return;
 				}
 				Debug.Log ("User profile updated successfully.");
-				TopManager.Created = true;
 			});
+			TopManager.Created = true;
+        }
+        protected override void OnBack(){}
+
+        public void updateProfile () {
+            var name = TopManager.UI.Name.text;
+            if(name == null){
+                name = "no name";
+            }
+
+			var profile = new Firebase.Auth.UserProfile {
+				DisplayName = name
+			};
+
+			//var user = GameData.Auth.CurrentUser;
+			var user = GameData.User;
+			user.UpdateUserProfileAsync (profile).ContinueWith (task => {
+				if (task.IsCanceled) {
+					Debug.LogError ("UpdateUserProfileAsync was canceled.");
+					return;
+				}
+				if (task.IsFaulted) {
+					Debug.LogError ("UpdateUserProfileAsync encountered an error: " + task.Exception);
+					return;
+				}
+				Debug.Log ("User profile updated successfully.");
+			});
+			TopManager.Created = true;
 		}
     }
 }
