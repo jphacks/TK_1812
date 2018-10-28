@@ -7,7 +7,7 @@ namespace Map
     public class LoacationGetter : MonoBehaviour
     {
         /// <summary>経緯度取得間隔（秒）</summary>
-        private const float IntervalSeconds = 0.5f;
+        private const float IntervalSeconds = 0.1f;
 
         /// <summary>ロケーションサービスのステータス</summary>
         private LocationServiceStatus locationServiceStatus;

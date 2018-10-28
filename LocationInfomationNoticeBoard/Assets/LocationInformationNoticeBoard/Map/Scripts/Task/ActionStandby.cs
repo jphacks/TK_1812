@@ -14,6 +14,7 @@ namespace Map.Task
         protected override void OnExecute()
         {
             MapSceneManager.State.Clear();
+            MapSceneManager.Data.Clear();
             EndAction();
         }
 

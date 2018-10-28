@@ -23,7 +23,7 @@ namespace Map
             }
             else
             {
-                location = new Mapbox.Utils.Vector2d(0, 0);
+                location = new Mapbox.Utils.Vector2d(35.7134029f, 139.7611094);
             }
 
             maps.Initialize(location,15);
