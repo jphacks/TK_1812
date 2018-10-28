@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/LocationInformationNoticeBoard/Scenes/Board.unity
     guid: a0296e07294ff438d93f5a9806dfcf8f
+  - enabled: 1
+    path: Assets/LocationInformationNoticeBoard/Scenes/Map.unity
+    guid: c7fefb45388a24f8d845784bddeade1c
   m_configObjects: {}
