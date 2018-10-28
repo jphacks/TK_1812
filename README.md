@@ -24,7 +24,7 @@
 #### 2. 特長2
 掲示板に投稿
 
-<img src="https://raw.githubusercontent.com/jphacks/TK_1812/master/image4.png" width="400px">
+<img src="https://raw.githubusercontent.com/jphacks/TK_1812/master/image5.png" width="400px">
 
 
 #### 3. 特長3
