@@ -12,6 +12,13 @@ namespace Board
 		[SerializeField] FSMOwner owner;
 		public static UICanvas UI { get { return Instance.uiCanvas; } }
 
+		public static bool Touch
+        {
+            get { return Instance.owner.blackboard.GetValue<bool>("touch"); }
+            set { Instance.owner.blackboard.SetValue("touch", value); }
+		}
+
+
 		protected override void OnSingltonAwake(){
 		}
 	}
