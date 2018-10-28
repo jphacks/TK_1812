@@ -13,22 +13,26 @@ namespace Board.Task
         protected override void OnExecute()
         {
             BoardManager.UI.Set(()=>OnClick());
+            BoardManager.UI.SetActive(true);
+            BoardManager.UI.Title.text = BoardManager.UI.placeName;
             GetPost();
         }
 
         protected override void OnClick(){
             AddPost();
         }
-        protected override void OnBack(){}
 
         /// <summary>
         /// 投稿を取得
         /// </summary>
-        void GetPost() {
-            FirebaseDatabase.DefaultInstance
+        async void GetPost() {
+            var list = new List<string>();
+            Debug.Log(BoardManager.UI.placeId);
+            await FirebaseDatabase.DefaultInstance
             .GetReference("posts")
             .OrderByChild("place_id")
-            .EqualTo(100000)
+            .LimitToLast(5)
+            .EqualTo(BoardManager.UI.placeId)
             .GetValueAsync()
             .ContinueWith(task => {
                 if (task.IsFaulted) {
@@ -36,15 +40,20 @@ namespace Board.Task
                 }
                 else if (task.IsCompleted) {
                     var snapshot = task.Result;
-                    IEnumerator result = snapshot.Children.GetEnumerator();
-
-                    while (result.MoveNext()) {
-                        DataSnapshot data = result.Current as DataSnapshot;
-                        string name = (string)data.Child("text").Value;
-                        Debug.Log(name);
+                    if(snapshot != null){
+                        IEnumerator result = snapshot.Children.GetEnumerator();
+                        while (result.MoveNext()) {
+                            DataSnapshot data = result.Current as DataSnapshot;
+                            string name = (string)data.Child("text").Value;
+                            list.Add(name);
+                        }
                     }
                 }
             });
+
+            for (int i = 0; i < list.Count; i++){
+                BoardManager.UI.Content[i].text = list[i];
+            }
         }
 
         /// <summary>
@@ -52,14 +61,13 @@ namespace Board.Task
         /// </summary>
         void AddPost () {
             var post = BoardManager.UI.Post.text;
-            Debug.Log(post);
             DatabaseReference reference = FirebaseDatabase.DefaultInstance.GetReference ("posts");
 
             var key = reference.Push().Key;
             Dictionary<string, object> childUpdates = new Dictionary<string, object>();
             Dictionary<string, object> newPost = new Dictionary<string, object>();
             newPost["uid"] = GameData.Auth.CurrentUser.UserId;
-            newPost["place_id"] = 100000;
+            newPost["place_id"] = BoardManager.UI.placeId;
             newPost["text"] = post;
             childUpdates[key] = newPost;
 

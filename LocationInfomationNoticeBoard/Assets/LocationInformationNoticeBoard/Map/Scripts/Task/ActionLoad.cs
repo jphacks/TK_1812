@@ -109,10 +109,11 @@ namespace Map.Task
 
         IEnumerator LoadDebugMapData()
         {
-            
+
             UriBuilder builder = new UriBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json");
             builder.Query += "radius=6000";
             //builder.Query += "&key=" + token;
+            builder.Query += "&key="+"AIzaSyCwijzoYm8HTkmgM6Em7aLG_tGLX7QqPcg";
             builder.Query += "&location=35.7134029,139.7611094";
             builder.Query += "&type=restaurant";
             var uri = builder.Uri;

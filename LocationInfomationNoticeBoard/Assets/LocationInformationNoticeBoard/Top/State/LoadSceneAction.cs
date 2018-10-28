@@ -14,7 +14,8 @@ namespace Top.Task
         protected override void OnExecute()
         {
             TopManager.UI.Set(() => OnClick());
-		    SceneManager.LoadScene("Board");
+            SceneManager.LoadSceneAsync("Board");
+            SceneManager.LoadSceneAsync("Map", LoadSceneMode.Additive);
         }
 
         protected override void OnClick(){
