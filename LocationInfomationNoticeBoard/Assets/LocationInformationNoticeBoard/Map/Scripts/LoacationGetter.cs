@@ -18,6 +18,9 @@ namespace Map
         /// <summary>経度</summary>
         public double Latitude { get; private set; }
 
+        //private double beforeLat;
+        //private double beforeLng;
+
 
         /// <summary>緯度経度情報が取得可能か</summary>
         /// <returns>可能ならtrue、不可能ならfalse</returns>
@@ -41,6 +44,8 @@ namespace Map
                             Input.location.Start();
                             break;
                         case LocationServiceStatus.Running:
+                            //beforeLat = Latitude;
+                            //beforeLng = Longitude;
                             Longitude = Input.location.lastData.longitude;
                             Latitude = Input.location.lastData.latitude;
                             MapSceneManager.State.IsLoadStartLoacation = true;
@@ -49,8 +54,16 @@ namespace Map
                             break;
                     }
                 }
-
-                yield return new WaitForSeconds(IntervalSeconds);
+                yield return null;
+                //if(beforeLat != Latitude || beforeLng != Longitude)
+                //{
+                //    MapSceneManager.Player.OnRunMotion();
+                //}
+                //else
+                //{
+                //    MapSceneManager.Player.OffRunMotion();
+                //}
+                //yield return new WaitForSeconds(IntervalSeconds);
             }
         }
     }

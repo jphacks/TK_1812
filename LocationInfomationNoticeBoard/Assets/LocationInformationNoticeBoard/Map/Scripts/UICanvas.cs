@@ -12,6 +12,14 @@ namespace Map
         [SerializeField] Text locationText;
         [SerializeField] Text positionText;
         [SerializeField] LoacationGetter loacationGetter;
+        [SerializeField] RawImage back;
+        [SerializeField] Image loading;
+
+        public void SetActiveLoad(bool value)
+        {
+            back.gameObject.SetActive(value);
+            loading.gameObject.SetActive(value);
+        }
 
         // Use this for initialization
         public void SetUp()
