@@ -1,6 +1,6 @@
 # LoCo
 
-[![Product Name](image.png)](https://youtu.be/cHvooH27BDc)
+[![Product Name](image.png)](https://youtu.be/BkAyc3ft8Mc)
 
 ## 製品概要
 ### 場所 X Tech
