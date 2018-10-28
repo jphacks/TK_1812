@@ -11,7 +11,7 @@ namespace Map
         Dictionary<Result,GameObject> generatedList = new Dictionary<Result, GameObject>();
         List<GameObject> poolObj = new List<GameObject>();
 
-        private int maxPoolObjCount = 10;
+        private int maxPoolObjCount = 50;
         private int activeCount = 0;
 
         public void InstantiateBoad(Result result)

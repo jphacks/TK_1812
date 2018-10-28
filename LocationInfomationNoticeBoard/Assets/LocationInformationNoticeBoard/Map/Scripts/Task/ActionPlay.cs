@@ -48,15 +48,8 @@ namespace Map.Task
                 MapSceneManager.Data.beforeLat = getter.Latitude;
                 MapSceneManager.Data.beforeLng = getter.Longitude;
             }
-            //MapSceneManager.Boad.InstantiateBoad(0, 0);
-            //MapSceneManager.Boad.InstantiateBoad(0.03f, 0);
-            //var lat1 = 0;
-            //var lon1 = 0;
-            //var lat2 = 0.03f;
-            //var lon2 = 0;
 
-            //var tes = ConvertDistance.Distance(lat1,lon1,lat2,lon2,'K');
-            //Debug.Log(tes);
+            MapSceneManager.UI.SetActiveLoad(false);
         }
 
         protected override void OnUpdate()
@@ -70,9 +63,7 @@ namespace Map.Task
                     data.beforeLat = location.x;
                     data.beforeLng = location.y;
                     enumerator = LoadMapData(location);
-                    Debug.Log("更新");
                 }
-
             }
             if (MapSceneManager.Getter.CanGetLonLat())
             {
@@ -125,7 +116,7 @@ namespace Map.Task
                 else
                 {
                     // Show results as text
-                    Debug.Log(www.downloadHandler.text);
+                    //Debug.Log(www.downloadHandler.text);
 
                     var resultsString = www.downloadHandler.text;
 

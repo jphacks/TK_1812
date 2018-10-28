@@ -15,6 +15,7 @@ namespace Map.Task
         {
             MapSceneManager.State.Clear();
             MapSceneManager.Data.Clear();
+            MapSceneManager.UI.SetActiveLoad(true);
             EndAction();
         }
 
