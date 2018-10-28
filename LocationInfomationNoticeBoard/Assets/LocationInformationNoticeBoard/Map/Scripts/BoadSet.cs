@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Board;
 
 namespace Map
 {
@@ -19,6 +20,7 @@ namespace Map
 
         public void OnClick()
         {
+            BoardManager.UI.setParam(placeId, place_name, icon);
             Debug.Log(place_name + "がクリックされました");
         }
     }
