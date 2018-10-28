@@ -12,10 +12,14 @@
 ### 製品説明（具体的な製品の説明）
 自分の現在地付近の地図上に掲示板となるオブジェクトが表示される。その掲示板に近づくことでメッセージを投稿することができる。また、掲示板ごとにそこに書き込んだ他ユーザーの投稿を見ることでその場所の新しい情報を知ることができる。
 
+<img src="https://raw.githubusercontent.com/jphacks/TK_1812/master/image1.png" width="400px">
+
 ### 特長
 
 #### 1. 特長1
 現在地に基づいて現在地周辺の地図を表示
+
+<img src="https://raw.githubusercontent.com/jphacks/TK_1812/master/image2.png" width="400px">
 
 #### 2. 特長2
 掲示板に投稿
